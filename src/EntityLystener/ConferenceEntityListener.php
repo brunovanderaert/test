@@ -8,7 +8,7 @@ class ConferenceEntityListener
 {
     private $slugger;
 
-    public function __construct(SluggerInterface $slugger) 
+    public function __construct(SluggerInterface $slugger)
     {
         $this->slugger = $slugger; 
     }
