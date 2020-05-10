@@ -83,3 +83,19 @@ pour la production :
 - curl -X PURGE -H 'x-purge-token PURGE_NOW' `symfony env:urls --first`
 - curl -X PURGE -H 'x-purge-token PURGE_NOW' `symfony env:urls -- first`conference_header
 
+doc: 
+    symfony :
+      - https://symfony.com/doc/current/http_cache/validation.html
+      - https://symfony.com/doc/master/cloud/cookbooks/cache.html
+
+    autres :
+      - https://www.akamai.com/fr/fr/support/esi.jsp
+      - https://varnish-cache.org/docs/index.html
+      - https://www.cloudflare.com
+
+22 - WEBPACK
+
+changer le nom du fichier css en scss : mv assets/css/app.css assets/css/app.scss
+loader sass : yarn add node-sass "sass-loader@^7.0.1" --dev
+instaler bootstrap : yarn add bootstrap jquery popper.js bs-custom-file-input --dev
+
