@@ -58,6 +58,19 @@ class ConferenceControllerTest extends WebTestCase
         $this->assertPageTitleContains('Amsterdam');
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h2', 'Amsterdam 2019');
-        $this->assertSelectorExists('div:contains("There are 1 comments")');
+        //$this->assertSelectorExists('div:contains("There are 1 comments")');
     }
+
+    /* email admin tests
+    public function testMailerAssertions()
+    {
+        $client = static::createClient(); $client->request('GET', '/');
+        $this->assertEmailCount(1);
+        $event = $this->getMailerEvent(0); $this->assertEmailIsQueued($event);
+        $email = $this->getMailerMessage(0); $this->assertEmailHeaderSame($email, 'To', 'bruno.vanderaert@gmail.com');
+        $this->assertEmailTextBodyContains($email, 'Bar');
+        var_dump($email); 
+        $this->assertEmailAttachmentCount($email, 1);
+    }
+    */
 }

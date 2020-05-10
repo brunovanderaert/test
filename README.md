@@ -1,3 +1,12 @@
+à faire :
+    redis,
+    panter test
+    tests databas probleme   
+            - SQLSTATE[08006] [7] could not connect to server: Connection refused  
+            Is the server running on host "127.0.0.1" and accepting             
+            TCP/IP connections on port 32770?   
+    tests sur mail admin (tests en commentaires)
+
 A - COMMANDE
 
 1 Symfony cli
@@ -22,16 +31,35 @@ a) Démarrage du projet
 
 B - NOTE DU PROJET
 
+18 - 
+
+ampq : 
+  - cosommer les messages : symfony console messenger:consume async -vv
+  - interface de rabitmq (admin : "guet", password : "guest") : symfony open:local:rabbitmq
+  - en arrière plan : symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async
+  - lister tous les worker en arrière plan : symfony server:status
+  - pour arrêter les workers : kill 15774
+  - Inspectez les messages : symfony console messenger:failed:show
+  - Inspectez les messages : symfony console messenger:failed:retry
+    symfonyCloud : 
+    - symfony tunnel:open
+    - symfony open:remote:rabbitmq
+    - when done : symfony tunnel:close
+    - Executer des workers : symfony logs --worker=messages all
+
 
 19 - WORKFLOW
 
 voir l'état du workflow : symfony console workflow:dump comment | dot -Tpng -o workflow.png
 
-State machine : https://symfony.com/doc/current/workflow/workflow-and-state-machine.html
-Workflow : https://symfony.com/doc/current/workflow.html
+doc : 
+    State machine : https://symfony.com/doc/current/workflow/workflow-and-state-machine.html
+    Workflow : https://symfony.com/doc/current/workflow.html
 
 20 - envoyer des emails aux admins
 
-installer la dépendances : composer req mailer
+- installer la dépendances : composer req mailer
+- insytaller du css pour les emails : symfony composer req twig/cssinliner-extra twig/inky-extra
 
-mailer documentation : https://symfony.com/doc/master/mailer.html
+doc :  
+    mailer documentation : https://symfony.com/doc/master/mailer.html

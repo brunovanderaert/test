@@ -4,6 +4,9 @@ type: php:7.3
 
 runtime:
     extensions:
+        - xsl
+        - ampq
+        #- redis
         - pdo_pgsql
         - apcu
         - mbstring
@@ -11,11 +14,13 @@ runtime:
         - ctype
         - iconv
         
-
 build:
     flavor: none
 
-
+relationships:
+    database: "db:postgresql" 
+    #redis: "rediscache:redis"
+    rabbitmq: "queue:rabbitmq"
 
 web:
     locations:
@@ -42,4 +47,12 @@ hooks:
 
         (>&2 symfony-deploy)
 
+workers:
+    messages:
+        commands :
+            start: |
+                set -x -e
+
+                (>&2 symfony deploy)
+                php bin/console messenger:consume async -vv --time-limit 3600 --memory-limit=128M
 
