@@ -11,4 +11,4 @@ import 'bootstrap';
 import bsCustomFileInput from 'bs-custom-file-input';
 
 bsCustomFileInput.init();
-console.log('ok');
+console.log('ok3');

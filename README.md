@@ -1,11 +1,12 @@
 à faire :
-    redis,
-    panter test
-    tests databas probleme   
+    - redis,
+    - panter test,
+    - tests databas probleme   
             - SQLSTATE[08006] [7] could not connect to server: Connection refused  
             Is the server running on host "127.0.0.1" and accepting             
             TCP/IP connections on port 32770?   
-    tests sur mail admin (tests en commentaires)
+    - tests sur mail admin (tests en commentaires)
+    - make file démarrage
 
 A - COMMANDE
 
@@ -14,6 +15,7 @@ A - COMMANDE
 a) Démarrage du projet
 - démarre le serveur : symfony server:start -d
 - donne les erreurs du site : symfony server:log
+- démarre webpack : yarn encore dev --watch
 
 - donne la version php de symfony cli : symfony php --version 
 
