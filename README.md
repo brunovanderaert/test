@@ -63,3 +63,23 @@ doc :
 
 doc :  
     mailer documentation : https://symfony.com/doc/master/mailer.html
+
+21 - Cache Http
+
+- commande de vérification : curl -s -I -X GET https://127.0.0.1:8000/
+- enlever le cache : rm -rf var/cache/dev/http_cache/
+- supprimer un fichier : rm src/EventSubscriber/TwigEventSubscriber.php
+
+pour les tests
+- cache pour l'admin : curl -I -X PURGE -u admin:admin `symfony var:export SYMFONY_DEFAULT_ROUTE_URL`/admin/http-cache/
+- curl -I -X PURGE -u admin:admin `symfony var:export SYMFONY_DEFAULT_ROUTE_URL`/admin/http-cache/conference_header
+  
+- composents processeur : composer req process
+- creer un controlleur : symfony console make:command app:step:info
+
+- mettre le composant cache de symfony : composer req cache
+  
+pour la production :
+- curl -X PURGE -H 'x-purge-token PURGE_NOW' `symfony env:urls --first`
+- curl -X PURGE -H 'x-purge-token PURGE_NOW' `symfony env:urls -- first`conference_header
+
