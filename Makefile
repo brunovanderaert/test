@@ -11,3 +11,11 @@ start:
 
 log:
 	symfony server:log
+
+git:
+	git status
+	git add .
+	git status
+
+cleanup:
+	symfony console app:comment:cleanup
